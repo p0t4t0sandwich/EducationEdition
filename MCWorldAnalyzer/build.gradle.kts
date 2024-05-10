@@ -1,5 +1,4 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import java.text.DateFormat
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 
@@ -66,7 +65,8 @@ tasks.named<ShadowJar>("shadowJar") {
             "Specification-Vendor" to "NeuralNexus",
             "Implementation-Version" to version,
             "Implementation-Vendor" to "NeuralNexus",
-            "Implementation-Timestamp" to DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(ZonedDateTime.now())
+            "Implementation-Timestamp" to DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(ZonedDateTime.now()),
+            "Main-Class" to "${project.group}.MainKt"
         ))
     }
 }
