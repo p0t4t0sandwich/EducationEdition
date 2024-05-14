@@ -1,0 +1,44 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "My Behavior Pack",
+        "description": "Script API Template",
+        "uuid": "93572d40-7c81-47f3-ad4a-4699db7f2387",
+        "version": [
+            1,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            16,
+            0
+        ]
+    },
+    "modules": [
+        {
+            "uuid": "7d304e70-c930-4771-b453-5a59cfc8dad8",
+            "version": [
+                1,
+                0,
+                0
+            ],
+            "type": "script",
+            "language": "javascript",
+            "entry": "scripts/Main.js"
+        }
+    ],
+    "capabilities": [
+        "script_eval"
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server",
+            "version": "1.10.0-beta"
+        },
+        {
+            "module_name": "@minecraft/server-ui",
+            "version": "1.2.0-beta"
+        }
+    ]
+}
