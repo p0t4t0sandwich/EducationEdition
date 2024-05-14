@@ -105,6 +105,7 @@ fun main(args: Array<String>) {
   // -i -- inputDir
   // -o -- outputDir
   // -j -- isJson
+  // -d -- dump
   if (argsMap["-h"] != null) {
     println("Usage: -f <searchFor> -i <inputDir> -o <outputDir> -j <isJson>")
     return
@@ -131,11 +132,26 @@ fun main(args: Array<String>) {
   if (argsMap["-j"] != null && jsonTrue.contains(argsMap["-j"]!!.lowercase(Locale.getDefault()))) {
     isJson = true
   }
+  var dump = false
+  val dumpTrue = setOf("y", "yes", "true", "1", "t")
+  if (argsMap["-d"] != null && dumpTrue.contains(argsMap["-d"]!!.lowercase(Locale.getDefault()))) {
+    dump = true
+  }
 
   val files = unzipAllMcWorldFiles(inputDir)
   val outputFile = File(outputDir + File.separator + searchFor)
   outputFile.writeText("")
-  if (isJson) {
+  if (dump) {
+    val badExtensions = setOf("ldb", "dat", "log", "jpg", "jpeg", "png")
+    files
+        .stream()
+        .filter { file -> file.extension !in badExtensions }
+        .forEach { file ->
+          println("Dumping ${file.absolutePath}")
+          outputFile.appendText(file.name + "\n")
+          outputFile.appendText(file.readText() + "\n")
+        }
+  } else if (isJson) {
     val json = mergeJson(searchFor, files)
     outputFile.writeText(gson.toJson(json))
   } else {
