@@ -23,22 +23,8 @@
                 0,
                 0
             ],
-            "type": "script",
-            "language": "javascript",
-            "entry": "scripts/Main.js"
-        }
-    ],
-    "capabilities": [
-        "script_eval"
-    ],
-    "dependencies": [
-        {
-            "module_name": "@minecraft/server",
-            "version": "1.10.0-beta"
-        },
-        {
-            "module_name": "@minecraft/server-ui",
-            "version": "1.2.0-beta"
+            "description": "My First Add-On!",
+            "type": "data"
         }
     ]
 }
