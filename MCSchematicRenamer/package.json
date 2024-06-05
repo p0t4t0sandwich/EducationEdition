@@ -8,10 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "GPL-3",
   "dependencies": {
-    "archiver": "^7.0.1",
-    "nbtify": "^1.90.1"
+    "@types/uuid": "^9.0.8",
+    "nbtify": "^1.90.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/bun": "latest"
